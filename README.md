@@ -12,21 +12,18 @@ helloworld：Demo展示
 
 ### 集成（参考 helloworld Demo）
 
- 1.将code_gen加入pubspec.yaml中：
+1. 将code_gen加入pubspec.yaml中：
 
-`dependencies:  
-  flutter:  
-    sdk: flutter  
-  code_gen:  
-    path: ../code_gen`
+   ` code_gen:
+        path: ../code_gen`
 
 2. `flutter pub get`
 
 3. `flutter packages pub run build_runner clean`
 
-4. ``flutter packages pub run build_runner build --delete-conflicting-outputs
+4. `flutter packages pub run build_runner build --delete-conflicting-outputs`
    
-   ``
+   
 
 ### 路由查找
 
