@@ -1,0 +1,52 @@
+targets:
+  $default:
+    builders:
+      code_gen|route_builder:
+        enabled: true
+        generate_for:
+          exclude: ['**.g.dart']
+      code_gen|redirected_builder:
+        enabled: true
+        generate_for:
+          exclude: ['**.g.dart']
+      code_gen|route_write_builder:
+        enabled: true
+        options: { 'write': true }
+        generate_for:
+          exclude: ['**.g.dart']
+      code_gen|function_builder:
+        enabled: true
+        options: { 'write': true }
+        generate_for:
+          exclude: ['**.g.dart']
+
+builders:
+  route_write_builder:
+    import: 'package:code_gen/builder.dart'
+    builder_factories: ['sciBuilder']
+    build_extensions: { '.route.dart': ['.g.dart'] }
+    auto_apply: root_package
+    build_to: source
+
+  route_builder:
+    import: 'package:code_gen/builder.dart'
+    builder_factories: ['routeParseBuilder']
+    build_extensions: { '.dart': ['.route.dart'] }
+    auto_apply: root_package
+    runs_before: ['code_gen|redirected_builder']
+    build_to: source
+
+  redirected_builder:
+    import: 'package:code_gen/builder.dart'
+    builder_factories: ['redirectedBuilder']
+    build_extensions: { '.dart': ['.redirected.dart'] }
+    auto_apply: root_package
+    runs_before: ['code_gen|route_write_builder']
+    build_to: source
+  function_builder:
+    import: 'package:code_gen/builder.dart'
+    builder_factories: [ 'functionBuilder' ]
+    build_extensions: { '.dart': [ '.function.dart' ] }
+    auto_apply: root_package
+    runs_before: [ 'code_gen|route_builder' ]
+    build_to: source
