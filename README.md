@@ -14,7 +14,9 @@ helloworld：Demo展示
 
 1. 将code_gen加入pubspec.yaml中：
 
-   ` code_gen:
+    `code_gen:`
+
+`
         path: ../code_gen`
 
 2. `flutter pub get`
