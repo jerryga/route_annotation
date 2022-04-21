@@ -25,6 +25,10 @@ helloworld：Demo展示
 
 4. `flutter packages pub run build_runner build --delete-conflicting-outputs`
 
+
+
+![](https://gist.githubusercontent.com/jerryga/92a95145fbb68d84c1a52d081de9f9c3/raw/523a8119bf7ac65f847bd38c98091d53244766f4/demo.gif)
+
 ### 路由查找
 
 ![](https://gist.githubusercontent.com/jerryga/d22cdca42ade8e5db64db2e9580e854b/raw/routeflow.jpg)
